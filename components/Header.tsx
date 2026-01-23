@@ -18,17 +18,7 @@ const Header: React.FC<HeaderProps> = ({ onBack, showBack = false }) => {
           <span className="material-symbols-outlined" style={{ fontSize: '24px' }}>arrow_back</span>
         </button>
 
-        {/* Center Logo */}
-        <div className="flex-1 flex justify-center">
-             <h2 className="text-white text-lg font-bold leading-tight tracking-[-0.015em] text-center font-serif select-none">
-                Hilton. <span className="font-normal italic">For the Stay.</span>
-            </h2>
-        </div>
-
-        {/* Right Action */}
-        <button className="flex size-10 cursor-pointer items-center justify-center overflow-hidden rounded-full hover:bg-white/10 text-white transition-colors">
-          <span className="material-symbols-outlined" style={{ fontSize: '24px' }}>menu</span>
-        </button>
+        {/* Center & Right sections cleared as requested */}
       </div>
 
       {/* Welcome Message - Only show on Home */}

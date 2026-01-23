@@ -1,9 +1,11 @@
 import { GoogleGenAI } from "@google/genai";
 
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
-
 export const editImageWithGemini = async (base64Image: string, prompt: string): Promise<string> => {
   try {
+    // Initialize the client inside the function to ensure process.env.API_KEY is available
+    // and to avoid top-level initialization errors in the browser.
+    const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+
     // Clean base64 string if it contains metadata
     const cleanBase64 = base64Image.replace(/^data:image\/(png|jpeg|jpg|webp);base64,/, '');
     
@@ -26,8 +28,7 @@ export const editImageWithGemini = async (base64Image: string, prompt: string): 
           },
         ],
       },
-      // Config to ensure we get an image back if possible, 
-      // though default generateContent with this model and mixed input implies editing/generation.
+      // Config to ensure we get an image back if possible
     });
 
     // Check for inline data (image) in response
